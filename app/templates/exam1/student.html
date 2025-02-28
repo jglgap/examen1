@@ -1,0 +1,7 @@
+{% for student in students%}
+<a href="{{ student.get_absolute_url}}">go detail</a>
+<h1>{{ student.name }}</h1>
+<h2>{{ student.surname }}</h2>
+
+
+{% endfor %}

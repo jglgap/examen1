@@ -7,7 +7,7 @@ from django.utils.text import slugify
 class Degree(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField(max_length=200)
-    numberOfYear = models.IntegerField(MinValueValidator(1),MaxValueValidator(4)) 
+    numberOfYear = models.IntegerField(validators=[MinValueValidator(1),MaxValueValidator(4)]) 
 
     def __str__(self):
         return self.name
@@ -25,5 +25,5 @@ class Student(models.Model):
         return reverse("student-detail", args=[self.slug])
     
     def save(self,*args,**kwargs):
-        self.slug = slugify(self.title)
+        self.slug = slugify(self.name)
         super().save(*args, **kwargs)

@@ -5,7 +5,7 @@ from .models import Degree, Student
 # Create your views here.
 class Index(View):
     def get(self,request):
-        return render(request,"index.html")
+        return render(request,"exam1/index.html")
     
 class ListOfStudents(ListView):
     template_name="exam1/student.html"
@@ -17,3 +17,6 @@ class ListOfDegrees(ListView):
     model = Degree
     context_object_name = "degrees"
 
+class StudentDetail(DetailView):
+    template_name = "exam1/studentDetail.html"
+    model = Student

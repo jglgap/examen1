@@ -5,7 +5,7 @@ from .models import Student,Degree
 class StudentAdmin(admin.ModelAdmin):
     list_display = ("name","surname","degree")
     list_filter = ("name","surname")
-    prepopulated_fields = {"slug":("title",)}
+    prepopulated_fields = {"slug":("name",)}
 
 admin.site.register(Student, StudentAdmin)
 admin.site.register(Degree)
